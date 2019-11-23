@@ -95,7 +95,12 @@ class OpeningTimes {
         }
 
         if (moment.isBetween(from, to, null, '[)')) {
-          return { from, to };
+          return {
+            from,
+            label: t.label || `${t.opens}-${t.closes}`,
+            to,
+            value: t.value || from.format('HH:ss'),
+          };
         }
       }
     }
@@ -167,6 +172,10 @@ class OpeningTimes {
       } else {
         returnValue.nextClosed = moment;
         returnValue.nextOpen = this._nextOpen(moment);
+      }
+      if (session) {
+        returnValue.label = session.label;
+        returnValue.value = session.value;
       }
     }
 
