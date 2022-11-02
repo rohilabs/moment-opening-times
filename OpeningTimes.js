@@ -151,7 +151,7 @@ class OpeningTimes {
   }
 
   _nextOpen(moment) {
-    const allSessions = this._getOpenSessions(moment, [0, 1, 2, 3, 4, 5, 6]);
+    const allSessions = this._getOpenSessions(moment, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
     if (this._findMomentInSessions(moment, allSessions)) {
       return moment;
     }
